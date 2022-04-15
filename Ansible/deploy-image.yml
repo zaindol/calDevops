@@ -1,0 +1,21 @@
+---
+- name: Pull docker image of ToDoList
+  hosts: all
+  tasks:
+    - name: Pull todolist devops image
+      docker_image:
+        name: zaindol/caldevops
+        source: pull
+
+- name: Run Docker Image
+  hosts: all
+  tasks:
+    - name: deploy todolist docker container
+      docker_container:
+        image: zaindol/caldevops
+        name: todolistimg
+        state: started
+        auto_remove: true
+        ports:
+          - "3000:3000"
+...
