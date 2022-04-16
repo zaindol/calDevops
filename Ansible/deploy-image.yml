@@ -1,21 +1,8 @@
 ---
-- name: Pull docker image of caldevops
+- name: Pull docker image of Calculator
   hosts: all
   tasks:
-    - name: Pull caldevops devops image
+    - name: Pull image
       docker_image:
         name: zaindol/caldevops
         source: pull
-
-- name: Run Docker Image
-  hosts: all
-  tasks:
-    - name: deploy caldevops docker container
-      docker_container:
-        image: zaindol/caldevops
-        name: caldevops
-        state: started
-        auto_remove: true
-        ports:
-          - "3000:3000"
-...
