@@ -3,4 +3,6 @@
   hosts: all
   tasks:
     - name: Pull image
-      shell: docker pull zaindol/caldevops
+      docker_image:
+        name: zaindol/caldevops
+        source: pull
