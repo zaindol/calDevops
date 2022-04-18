@@ -2,7 +2,9 @@
 - name: Pull docker image of Calculator
   hosts: all
   tasks:
-    - name: Pull image
-      docker_image:
-        name: zaindol/caldevops
-        source: pull
+#     - name: Pull image
+#       docker_image:
+#         name: zaindol/caldevops
+#         source: pull
+     - name: pull image
+       shell: docker pull zaindol/caldevops
